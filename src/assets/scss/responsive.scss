@@ -1,0 +1,39 @@
+/* Màn hình nhỏ hơn hoặc bằng máy tính bảng (≥576px) */
+@media (min-width: 576px) {
+  .custom-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Màn hình trung bình (≥768px) */
+@media (min-width: 768px) {
+  .custom-col {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+/* Màn hình lớn (≥992px) */
+@media (min-width: 992px) {
+  .custom-col {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+/* Màn hình rất lớn (≥1200px) */
+@media (min-width: 1200px) {
+  .custom-col {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+/* Màn hình cực lớn (≥1400px) */
+@media (min-width: 1400px) {
+  .custom-col {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
