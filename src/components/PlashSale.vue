@@ -1,7 +1,7 @@
 <script setup>
 import {ref, onMounted, onUnmounted, computed} from 'vue';
 import imagePlashSale from "@/assets/images/plash-sale.webp";
-import ProductItem from "@/components/ProductItem.vue";
+import ProductItem from "@/components/product/ProductItem.vue";
 import imgProductDemo from "@/assets/images/prd-sale-image.webp";
 import imageAddSale from "@/assets/images/addProductImage.webp"
 import imagePrdBonus from "@/assets/images/bonus-image.webp"

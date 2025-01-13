@@ -15,6 +15,10 @@ const props = defineProps({
         type: String,
         required: true
     },
+    productImageSub: {
+        type: String,
+        required: true
+    },
     currentPrice: {
         type: String,
         required: true
@@ -53,13 +57,18 @@ const props = defineProps({
 <template>
     <div class="product-list bg-white position-relative">
         <div class="position-relative">
-            <div v-if="addSaleImage" class="position-absolute prd-add-sale">
-                <img class="w-100" :src="addSaleImage" />
+            <div class="img-label-sale d-flex flex-column gap-2 position-absolute">
+                <div v-if="addSaleImage" class="prd-add-sale">
+                    <img class="w-100" :src="addSaleImage" />
+                </div>
+                <div v-if="bonusImage" class="prd-bonus">
+                    <img class="w-100 h-100" :src="bonusImage" />
+                </div>
             </div>
             <span class="d-block position-absolute icon-heart" v-html="Heart"></span>
-            <img class="image-main w-100" :src="productImage" alt="Product Image"/>
-            <div v-if="bonusImage" class="prd-bonus position-absolute w-50">
-                <img class="w-100" :src="bonusImage" />
+            <div class="d-flex flex-row overflow-hidden">
+                <img class="image-main w-100" :src="productImage" alt="Product Image"/>
+                <img class="img-sub w-100" :src="productImageSub" alt=""/>
             </div>
         </div>
         <div class="content-main p-2">
@@ -92,22 +101,42 @@ const props = defineProps({
     transition: transform 0.2s ease, box-shadow 0.3s ease;
 
     &:hover {
+        .image-main {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        .img-sub {
+            transform: translateX(-100%);
+            opacity: 1;
+        }
         transform: translateY(-5px);
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
-    .prd-add-sale {
+    .image-main {
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    .img-sub {
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        transform: translateX(100%);
+    }
+    .img-label-sale {
         top: 5px;
         left: 5px;
-        width: 30px;
+        z-index: 99;
+    }
+    .prd-add-sale {
+        width: 40px;
+        height: 40px;
     }
     .icon-heart {
         top: 5px;
         right: 5px;
         width: 30px;
+        z-index: 99;
     }
     .prd-bonus {
-        bottom: 0;
-        left: 0;
+        width: 40px;
+        height: 40px;
     }
     .sale-percent {
         width: max-content;

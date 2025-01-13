@@ -13,7 +13,7 @@ import Prev from "./icons/angle-right-solid.svg?raw"
 import Facebook from "./icons/facebook-brands-solid.svg?raw"
 import Tiktok from "./icons/tiktok-brands-solid.svg?raw"
 import Instagram from "./icons/instagram-brands-solid.svg?raw"
-import Star from "./icons/arrow-down.svg?raw"
+import Star from "./icons/star-solid.svg?raw"
 
 export {
     IconGoogle, IconSearch, Bagging, Blog, Home, User, More, Heart, Cart, Down, Prev, Next, Facebook, Tiktok, Instagram,
