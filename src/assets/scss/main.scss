@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .form-control, .form-check-input {
   &:focus {
     box-shadow: none;

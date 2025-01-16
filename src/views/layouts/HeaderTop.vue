@@ -23,7 +23,13 @@ const searchSuggestions = ref([
     "Sản phẩm A",
     "Sản phẩm B",
     "Sản phẩm C",
-    "Sản phẩm D"
+    "Sản phẩm D",
+    "Sản phẩm A",
+    "Sản phẩm B",
+    "Sản phẩm C",
+    "Sản phẩm A",
+    "Sản phẩm B",
+    "Sản phẩm C",
 ]);
 
 const showSuggestions = ref(false);
@@ -100,9 +106,9 @@ const menuItems = [
                                 >
                                     <span v-html="IconSearch" class="position-absolute icon-search"></span>
                                     <input type="text" class="searchInput border-0" placeholder="Tặng quà 799K đơn từ 799K">
-                                    <div v-if="showSuggestions" class="resultBox">
+                                    <div v-if="showSuggestions" class="resultBox overflow-auto">
                                         <ul>
-                                            <li v-for="(suggestion, index) in searchSuggestions" :key="index">
+                                            <li class="list-unstyled mb-2 mt-2" v-for="(suggestion, index) in searchSuggestions" :key="index">
                                                 {{ suggestion }}
                                             </li>
                                         </ul>
@@ -135,8 +141,8 @@ const menuItems = [
                         </div>
                     </div>
                 </div>
-                <div class="header-bottom w-100 bg-white">
-                    <ul class="list-menu position-relative container w-100 d-flex align-items-center justify-content-evenly">
+                <div class="header-bottom w-100 bg-white container">
+                    <ul class="list-menu position-relative w-100 d-flex align-items-center justify-content-evenly">
                         <li class="menu-item menu-item-sale list-unstyled d-flex align-items-center">
                             Khuyến mãi
                             <i v-html="Down"></i>
@@ -242,12 +248,35 @@ const menuItems = [
 
                 .resultBox {
                     position: absolute;
+                    max-height: 190px;
+                    scrollbar-width: thin;
+                    scrollbar-color: #ccc transparent;
                     top: 100%;
                     left: 0;
                     width: 100%;
                     background: white;
                     border: 1px solid #e5e5e5;
+                    border-radius: 10px;
                     z-index: 1000;
+
+                    &::-webkit-scrollbar {
+                        height: 8px;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: #ccc;
+                        border-radius: 4px;
+                    }
+
+                    &::-webkit-scrollbar-thumb:hover {
+                        background-color: #aaa;
+                    }
+
+                    ul {
+                        li {
+                            cursor: pointer;
+                        }
+                    }
                 }
             }
 
@@ -280,6 +309,7 @@ const menuItems = [
 
             .icon-header {
                 width: 20px;
+                cursor: pointer;
             }
 
             .block-border {

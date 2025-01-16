@@ -1,6 +1,7 @@
 <script setup>
-import { defineProps } from 'vue';
+import {defineProps, ref} from 'vue';
 import { Heart, Star } from "@/assets/icons.js";
+import QuickView from "@/views/Modal/QuickView.vue";
 
 const props = defineProps({
     productName: {
@@ -52,10 +53,18 @@ const props = defineProps({
         default: ""
     }
 });
+
+// Trạng thái của overlay
+const isOverlayOpen = ref(false);
+
+// Hàm mở và đóng overlay
+const toggleOverlay = () => {
+    isOverlayOpen.value = !isOverlayOpen.value;
+};
 </script>
 
 <template>
-    <div class="product-list bg-white position-relative">
+    <div class="product-list bg-white position-relative mb-3">
         <div class="position-relative">
             <div class="img-label-sale d-flex flex-column gap-2 position-absolute">
                 <div v-if="addSaleImage" class="prd-add-sale">
@@ -70,6 +79,9 @@ const props = defineProps({
                 <img class="image-main w-100" :src="productImage" alt="Product Image"/>
                 <img class="img-sub w-100" :src="productImageSub" alt=""/>
             </div>
+            <button type="button" class="view-trailer position-absolute border-0" @click="toggleOverlay">
+                Xem Nhanh
+            </button>
         </div>
         <div class="content-main p-2">
             <h2 class="prd-title fw-bold text-center">{{ productName }}</h2>
@@ -93,12 +105,22 @@ const props = defineProps({
             </div>
         </div>
     </div>
+    <div
+        v-if="isOverlayOpen"
+        class="overlay"
+        @click.self="toggleOverlay"
+    >
+        <div class="overlay-content">
+            <QuickView />
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 .product-list {
     border-radius: 5px;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 
     &:hover {
         .image-main {
@@ -111,6 +133,9 @@ const props = defineProps({
         }
         transform: translateY(-5px);
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        .view-trailer {
+            display: block;
+        }
     }
     .image-main {
         transition: transform 0.5s ease, opacity 0.5s ease;
@@ -123,6 +148,21 @@ const props = defineProps({
         top: 5px;
         left: 5px;
         z-index: 99;
+    }
+    .view-trailer {
+        top: 45%;
+        left: 25%;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: #fff;
+        background-color: #000;
+        outline: none;
+        display: none;
+        &:hover {
+            background-color: #94c83d;
+        }
     }
     .prd-add-sale {
         width: 40px;
@@ -163,10 +203,15 @@ const props = defineProps({
             font-size: 14px;
             font-weight: 600;
             line-height: 24px;
+            width: 220px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
         .prd-desc {
             font-size: 12px;
             font-weight: 400;
+            height: 38px;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
@@ -205,5 +250,30 @@ const props = defineProps({
             }
         }
     }
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.overlay-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.view-trailer {
+    z-index: 1;
 }
 </style>

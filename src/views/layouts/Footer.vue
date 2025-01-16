@@ -19,7 +19,7 @@ import CardPay3 from "@/assets/images/visa.webp"
                 <div class="register-email position-absolute">ĐĂNG KÝ</div>
             </div>
         </div>
-        <div class="footer-main row bg-white p-5">
+        <div class="footer-main row bg-white p-5 m-0">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="logo-footer mb-3">
                     <img :src="imageLogo" />
@@ -100,6 +100,7 @@ import CardPay3 from "@/assets/images/visa.webp"
       font-size: 16px;
       font-weight: 600;
       color: #fff;
+      cursor: pointer;
     }
   }
     .footer-main {
