@@ -15,6 +15,7 @@ import BrandAmbassador from "@/components/brand/BrandAmbassador.vue";
 import BrandSeller from "@/assets/images/brand-seller.webp"
 import {ref} from "vue";
 import BlogSpa from "@/components/Blog/BlogSpa.vue";
+import QuickView from "@/views/Modal/QuickView.vue";
 
 const listImageVoucher = [imageVoucher,imageVoucher,imageVoucher]
 const listPromotionBanner = [PromotionImg,PromotionImg,PromotionImg]
@@ -26,7 +27,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "250,000₫",
         oldPrice: "300,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 120,
         stars: 4,
         totalRemaining: 50,
@@ -41,7 +42,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -53,7 +54,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "200,000₫",
         oldPrice: "250,000₫",
-        salePercent: "20",
+        salePercent: 20,
         totalReviews: 75,
         stars: 3,
         totalRemaining: 20,
@@ -65,7 +66,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "250,000₫",
         oldPrice: "300,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 120,
         stars: 4,
         totalRemaining: 50,
@@ -77,7 +78,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -89,7 +90,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "200,000₫",
         oldPrice: "250,000₫",
-        salePercent: "20",
+        salePercent: 20,
         totalReviews: 75,
         stars: 3,
         totalRemaining: 20,
@@ -101,7 +102,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -113,7 +114,7 @@ const listProducts = [
         productImage: imgMainSeller,
         currentPrice: "200,000₫",
         oldPrice: "250,000₫",
-        salePercent: "20",
+        salePercent: 20,
         totalReviews: 75,
         stars: 3,
         totalRemaining: 20,
@@ -180,6 +181,7 @@ const listSearchTop = ['Vitamin C serum',
       <ProductTrend />
   </div>
   <BrandAmbassador />
+  <QuickView />
   <div class="brand-container container">
       <div class="product-bestseller">
           <h1 class="bestseller-heading text-uppercase">MẶT NẠ BÁN CHẠY NHẤT</h1>

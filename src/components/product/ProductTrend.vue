@@ -17,7 +17,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "250,000₫",
         oldPrice: "300,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 120,
         stars: 4,
         totalRemaining: 50,
@@ -32,7 +32,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -44,7 +44,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "250,000₫",
         oldPrice: "300,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 120,
         stars: 4,
         totalRemaining: 50,
@@ -59,7 +59,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -71,7 +71,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "250,000₫",
         oldPrice: "300,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 120,
         stars: 4,
         totalRemaining: 50,
@@ -86,7 +86,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -98,7 +98,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "250,000₫",
         oldPrice: "300,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 120,
         stars: 4,
         totalRemaining: 50,
@@ -113,7 +113,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -125,7 +125,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "250,000₫",
         oldPrice: "300,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 120,
         stars: 4,
         totalRemaining: 50,
@@ -140,7 +140,7 @@ const listProductsTrend1 = [
         productImage: imgMainSeller,
         currentPrice: "350,000₫",
         oldPrice: "400,000₫",
-        salePercent: "12",
+        salePercent: 12,
         totalReviews: 90,
         stars: 5,
         totalRemaining: 30,
@@ -155,7 +155,7 @@ const listProductsTrend2 = [
         productImage: imgMainSeller,
         currentPrice: "150,000₫",
         oldPrice: "180,000₫",
-        salePercent: "17",
+        salePercent: 17,
         totalReviews: 50,
         stars: 4,
         totalRemaining: 60,
@@ -167,7 +167,7 @@ const listProductsTrend2 = [
         productImage: imgMainSeller,
         currentPrice: "450,000₫",
         oldPrice: "500,000₫",
-        salePercent: "10",
+        salePercent: 10,
         totalReviews: 110,
         stars: 5,
         totalRemaining: 25,
@@ -192,11 +192,11 @@ const handleTabChange = (tabIndex) => {
         >
           Chăm Sóc Cơ Thể
         </span>
-                <span
-                    class="tab-trend-2"
-                    :class="{ active: activeTab === 2 }"
-                    @click="handleTabChange(2)"
-                >
+        <span
+            class="tab-trend-2"
+            :class="{ active: activeTab === 2 }"
+            @click="handleTabChange(2)"
+        >
           Dưỡng Da
         </span>
             </div>

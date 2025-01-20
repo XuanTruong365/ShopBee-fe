@@ -1,7 +1,7 @@
 <script setup>
-import {defineProps, ref} from 'vue';
+import {defineProps} from 'vue';
 import { Heart, Star } from "@/assets/icons.js";
-import QuickView from "@/views/Modal/QuickView.vue";
+import {eventBus} from "@/app/constants/eventBus.js";
 
 const props = defineProps({
     productName: {
@@ -54,12 +54,9 @@ const props = defineProps({
     }
 });
 
-// Trạng thái của overlay
-const isOverlayOpen = ref(false);
-
-// Hàm mở và đóng overlay
 const toggleOverlay = () => {
-    isOverlayOpen.value = !isOverlayOpen.value;
+    console.log("open overlay")
+    eventBus.emit('open-quickview', { productId: 123 });
 };
 </script>
 
@@ -103,15 +100,6 @@ const toggleOverlay = () => {
                 Còn {{ totalRemaining }} sản phẩm
                 <div class="position-absolute percent-total-width"></div>
             </div>
-        </div>
-    </div>
-    <div
-        v-if="isOverlayOpen"
-        class="overlay"
-        @click.self="toggleOverlay"
-    >
-        <div class="overlay-content">
-            <QuickView />
         </div>
     </div>
 </template>
@@ -250,30 +238,5 @@ const toggleOverlay = () => {
             }
         }
     }
-}
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.overlay-content {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 600px;
-    width: 90%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.view-trailer {
-    z-index: 1;
 }
 </style>

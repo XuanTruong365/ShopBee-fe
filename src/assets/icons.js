@@ -14,8 +14,10 @@ import Facebook from "./icons/facebook-brands-solid.svg?raw"
 import Tiktok from "./icons/tiktok-brands-solid.svg?raw"
 import Instagram from "./icons/instagram-brands-solid.svg?raw"
 import Star from "./icons/star-solid.svg?raw"
+import Right from "./icons/icon-arrow-right.svg?raw"
+
 
 export {
     IconGoogle, IconSearch, Bagging, Blog, Home, User, More, Heart, Cart, Down, Prev, Next, Facebook, Tiktok, Instagram,
-    Star
+    Star, Right
 }
