@@ -5,6 +5,8 @@ import LoginGoogle from "@/views/pages/auth/LoginGoogle.vue";
 import LoginView from "@/views/pages/auth/LogginView.vue";
 import RegisterView from "@/views/pages/auth/RegisterView.vue";
 import ResetPassword from "@/views/pages/auth/resetPassword.vue";
+import BlogView from "@/views/pages/blog/BlogView.vue"
+import ViewProduct from "@/views/pages/products/ProductView.vue"
 
 
 const router = createRouter({
@@ -31,6 +33,22 @@ const router = createRouter({
           meta: {
             requiresAuth: true
           }
+        },
+        {
+          path: '/products',
+          name: 'products',
+          component: ViewProduct,
+          meta: {
+            requiresAuth: false,
+          },
+        },
+        {
+          path: '/blogs',
+          name: 'blogs',
+          component: BlogView,
+          meta: {
+            requiresAuth: false,
+          },
         },
         {
           path: '/profile',

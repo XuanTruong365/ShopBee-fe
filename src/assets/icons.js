@@ -15,9 +15,15 @@ import Tiktok from "./icons/tiktok-brands-solid.svg?raw"
 import Instagram from "./icons/instagram-brands-solid.svg?raw"
 import Star from "./icons/star-solid.svg?raw"
 import Right from "./icons/icon-arrow-right.svg?raw"
-
+import Close from "./icons/close-x.svg?raw"
+import ArrowUp from "./icons/arrow-up.svg?raw"
+import ArrowDown from "./icons/arrow-down.svg?raw"
+import TrustPast from "./icons/truck-fast-solid.svg?raw"
+import Return from "./icons/right-left-solid.svg?raw"
+import CheckDone from "./icons/clipboard-check-solid.svg?raw"
+import Coin from "./icons/bitcoin-brands-solid.svg?raw"
 
 export {
     IconGoogle, IconSearch, Bagging, Blog, Home, User, More, Heart, Cart, Down, Prev, Next, Facebook, Tiktok, Instagram,
-    Star, Right
+    Star, Right, Close, ArrowUp, ArrowDown, TrustPast, Return, CheckDone, Coin
 }

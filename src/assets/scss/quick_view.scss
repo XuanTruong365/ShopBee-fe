@@ -2,28 +2,36 @@
   .info-section {
     margin-left: -8px;
     margin-right: -8px;
-    .slide-group {
-      .slide-group__container {
-        .slide-group__left {
-          .container-slide {
-            .carousel-fade {
-              .carousel-inner {
-                .carousel-item {
-                  width: 50px;
-                  height: 50px;
-                }
-              }
-            }
+    .slide-left-container {
+      .slide-group {
+        height: 60%;
+        overflow: hidden;
+        .slide-image {
+          overflow: hidden;
+          .image-item {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
           }
         }
-        .slide-group__right {
-
+        .control-prev {
+          top: 6px;
+          left: 8px;
+        }
+        .control-next {
+          bottom: 6px;
+          left: 4px;
         }
       }
+      .container-slide {
+        width: 80%;
+        height: 60%;
+      }
     }
-    .product-infor {
+    .product-info {
       .left-product-info {
-        .product-infor-heading {
+        .product-info-heading {
           .product-header-wrapper {
             .product-header {
               .brand-name {
@@ -169,12 +177,47 @@
             margin-bottom: 20px;
             max-height: 30vh;
             overflow: auto;
+            scrollbar-width: none;
+
             .promotion-title-main {
               font-size: 16px;
               font-weight: 600;
               color: #000;
               .promotion-title-sub {
                 font-size: 14px;
+              }
+            }
+            .promotion-list {
+              .promotion-item {
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+          .color-container {
+            .color-heading {
+              font-size: 14px;
+            }
+            .color-name {
+              font-size: 14px;
+            }
+            .variants-section {
+              .variant-list {
+                .variant-item {
+                  width: 26px;
+                  height: 26px;
+                  border-radius: 50%;
+                  .variant-item-color {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                  }
+                }
+                .active {
+                  background-color: #fff;
+                  border: 1px solid #000;
+                }
               }
             }
           }

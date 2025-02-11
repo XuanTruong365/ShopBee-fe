@@ -1,4 +1,6 @@
-
+body {
+  background-color: #fff;
+}
 .form-control, .form-check-input {
   &:focus {
     box-shadow: none;
@@ -16,4 +18,8 @@
     color: #FFFFFF;
     border: none;
   }
+}
+.item-icon {
+  width: 16px;
+  height: 16px;
 }

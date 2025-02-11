@@ -1,6 +1,6 @@
 <script setup>
-import SlideImage from "@/components/slideImage.vue";
-import BrandDemo from "@/components/brandDemo.vue";
+import SlideImage from "@/components/SlideImage.vue";
+import BrandDemo from "@/components/BrandDemo.vue";
 import PlashSale from "@/components/PlashSale.vue";
 import imageVoucher from "@/assets/images/voucher.webp";
 import ProductItem from "@/components/product/ProductItem.vue";
@@ -8,17 +8,16 @@ import imgMainSeller from "@/assets/images/bestseller-main.webp"
 import imgSubSeller from "@/assets/images/sub-bestseller.webp"
 import imgAddProduct from "@/assets/images/addProductImage.webp"
 import imgOnline from "@/assets/images/imgOnline.webp"
-import PromotionImg from "@/assets/images/promotion-banner.webp"
 import ProductTrend from "@/components/product/ProductTrend.vue";
-import ButtonMain from "@/components/buttonMain.vue";
+import ButtonMain from "@/components/ButtonMain.vue";
 import BrandAmbassador from "@/components/brand/BrandAmbassador.vue";
 import BrandSeller from "@/assets/images/brand-seller.webp"
 import {ref} from "vue";
-import BlogSpa from "@/components/Blog/BlogSpa.vue";
-import QuickView from "@/views/Modal/QuickView.vue";
+import BlogSpa from "@/components/blog/BlogSpa.vue";
+import QuickView from "@/views/modal/QuickView.vue";
+import AdsBrandSale from "@/components/sale/AdsBrandSale.vue";
 
 const listImageVoucher = [imageVoucher,imageVoucher,imageVoucher]
-const listPromotionBanner = [PromotionImg,PromotionImg,PromotionImg]
 const listProducts = [
     {
         id: 1,
@@ -134,6 +133,20 @@ const listSearchTop = ['Vitamin C serum',
 'chấm hói',
 'che khuyết điểm tóc',
 'son dưỡng có màu']
+const banners = [
+    {
+        image: "@/assets/images/promotion-banner1.webp",
+        link: "",
+    },
+    {
+        image: "@/assets/images/promotion-banner2.webp",
+        link: "",
+    },
+    {
+        image: "@/assets/images/promotion-banner3.webp",
+        link: "",
+    },
+];
 </script>
 
 <template>
@@ -173,11 +186,7 @@ const listSearchTop = ['Vitamin C serum',
           </div>
           <button-main />
       </div>
-      <div class="promotion-list d-flex flex-row gap-3 justify-content-between">
-          <div class="promotion-banner-item" v-for="(item, index) in listPromotionBanner" :key="index">
-              <img :src="item" alt="" class="img-card w-100 h-100" />
-          </div>
-      </div>
+      <AdsBrandSale :banners="banners"/>
       <ProductTrend />
   </div>
   <BrandAmbassador />
@@ -282,22 +291,6 @@ const listSearchTop = ['Vitamin C serum',
                 background-color: #aaa;
             }
         }
-    }
-    .promotion-list {
-      height: 206px;
-      margin: 80px 0;
-      .promotion-banner-item {
-          cursor: pointer;
-          border-radius: 10px;
-          .img-card {
-              border-radius: 10px;
-          }
-          &:hover {
-              transform: translateY(-10px);
-              box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-              transition: ease 0.5s;
-          }
-      }
     }
     .brand-seller {
         cursor: pointer;

@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue";
-import ButtonMain from "@/components/buttonMain.vue";
-import ArticleItem from "@/components/Blog/ArticleItem.vue";
+import ButtonMain from "@/components/ButtonMain.vue";
+import ArticleItem from "@/components/blog/ArticleItem.vue";
 import imgBlog from "@/assets/images/img-blog.webp";
 
 const articles1 = [

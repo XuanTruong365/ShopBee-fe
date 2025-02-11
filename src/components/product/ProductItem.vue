@@ -2,6 +2,8 @@
 import {defineProps} from 'vue';
 import { Heart, Star } from "@/assets/icons.js";
 import {eventBus} from "@/app/constants/eventBus.js";
+import {useRouter} from "vue-router";
+const route = useRouter()
 
 const props = defineProps({
     productName: {
@@ -58,10 +60,14 @@ const toggleOverlay = () => {
     console.log("open overlay")
     eventBus.emit('open-quickview', { productId: 123 });
 };
+
+const viewProduct = () => {
+    route.push({name: 'products'})
+}
 </script>
 
 <template>
-    <div class="product-list bg-white position-relative mb-3">
+    <div class="product-list bg-white position-relative mb-3" @click="viewProduct">
         <div class="position-relative">
             <div class="img-label-sale d-flex flex-column gap-2 position-absolute">
                 <div v-if="addSaleImage" class="prd-add-sale">
@@ -76,7 +82,7 @@ const toggleOverlay = () => {
                 <img class="image-main w-100" :src="productImage" alt="Product Image"/>
                 <img class="img-sub w-100" :src="productImageSub" alt=""/>
             </div>
-            <button type="button" class="view-trailer position-absolute border-0" @click="toggleOverlay">
+            <button type="button" class="view-trailer position-absolute border-0" @click.stop="toggleOverlay">
                 Xem Nhanh
             </button>
         </div>

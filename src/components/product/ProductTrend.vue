@@ -5,7 +5,7 @@ import imgMainSeller from "@/assets/images/bestseller-main.webp";
 import imgAddProduct from "@/assets/images/addProductImage.webp";
 import imgOnline from "@/assets/images/imgOnline.webp";
 import imgSubSeller from "@/assets/images/sub-bestseller.webp";
-import ButtonMain from "@/components/buttonMain.vue";
+import ButtonMain from "@/components/ButtonMain.vue";
 
 const activeTab = ref(1);
 

@@ -91,7 +91,7 @@ const menuItems = [
                 <div class="header-main-container bg-white d-flex align-items-center w-100">
                     <div class="d-flex align-items-center container justify-content-evenly w-100">
                         <div class="logo-app d-flex justify-content-center align-items-center">
-                            <router-link>
+                            <router-link :to="{name: 'home'}">
                                 <div class="image-wrapper pointer">
                                     <img alt="logo" loading="lazy" class="logo-img w-100 h-100 object-fit-contain" src="/src/assets/images/bg-logo.webp" layout="responsive">
                                 </div>
@@ -122,10 +122,10 @@ const menuItems = [
                                 <span class="icon-header" v-html="Home"></span>
                                 <span class="ms-2 header-text">Hệ thống cửa hàng</span>
                             </div>
-                            <div class="header-main-item d-flex align-items-center justify-content-center ms-4">
+                            <router-link :to="{name:'blogs'}" class="header-main-item text-decoration-none d-flex align-items-center justify-content-center ms-4">
                                 <span class="icon-header" v-html="Blog"></span>
                                 <span class="ms-2 header-text">Blog làm đẹp</span>
-                            </div>
+                            </router-link>
                             <span class="icon-header ms-4" v-html="More"></span>
                             <div class="block-border ms-4"></div>
                             <div class="header-main-item d-flex align-items-center justify-content-center ms-4">
