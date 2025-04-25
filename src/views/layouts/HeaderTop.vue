@@ -128,10 +128,10 @@ const menuItems = [
                             </router-link>
                             <span class="icon-header ms-4" v-html="More"></span>
                             <div class="block-border ms-4"></div>
-                            <div class="header-main-item d-flex align-items-center justify-content-center ms-4">
+                            <router-link :to="{name: 'auth.login'}" class="header-main-item d-flex align-items-center justify-content-center ms-4">
                                 <span class="icon-header" v-html="User"></span>
                                 <span class="ms-2 header-text">Đăng nhập</span>
-                            </div>
+                            </router-link>
                             <div class="icon-header ms-4" v-html="Heart"></div>
                             <div class="ms-4 position-relative">
                                 <span class="icon-header d-block" v-html="Cart"></span>

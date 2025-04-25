@@ -51,7 +51,7 @@ const router = createRouter({
           },
         },
         {
-          path: '/profile',
+          path: '/auth/login',
           name: 'auth.login',
           component: LoginView,
           meta: {
