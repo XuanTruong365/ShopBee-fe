@@ -181,8 +181,6 @@ const menuItems = [
                         <li class="menu-item list-unstyled">Nhận ưu đãi</li>
                     </ul>
                 </div>
-                <!--        khoi list data  khi click menu-item-sale-->
-<!--            </div>-->
         </div>
     </div>
 </template>
@@ -207,8 +205,18 @@ const menuItems = [
     }
 
     .header-main-container {
+        position: relative;
         height: 80px;
         color: #000;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #ECECEC;
+        }
 
         .logo-app {
             width: 190px;
@@ -338,8 +346,6 @@ const menuItems = [
         position: relative;
         height: 48px;
         line-height: 48px;
-        border-top: 1px solid #ECECEC;
-        border-bottom: 1px solid #ECECEC;
         .list-menu {
             .menu-item {
                 cursor: pointer;

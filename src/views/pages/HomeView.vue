@@ -241,7 +241,17 @@ const banners = [
 
 <style lang="scss" scoped>
 .content-container {
-    background-color: #fff;
+  position: relative;
+  background-color: #fff;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ECECEC;
+  }
   .brand-container {
     box-sizing: content-box;
     margin-left: auto;
