@@ -7,6 +7,8 @@ import RegisterView from "@/views/pages/auth/RegisterView.vue";
 import ResetPassword from "@/views/pages/auth/resetPassword.vue";
 import BlogView from "@/views/pages/blog/BlogView.vue"
 import ViewProduct from "@/views/pages/products/ProductView.vue"
+import CollectionView from "@/views/pages/categories/CategoriesView.vue";
+import CategoriesView from "@/views/pages/categories/CategoriesView.vue";
 
 
 const router = createRouter({
@@ -82,6 +84,14 @@ const router = createRouter({
             requiresAuth: false
           }
         },
+        {
+          path: '/categories',
+          name: 'categories',
+          component: CategoriesView,
+          meta: {
+              requiresAuth: false
+          }
+        }
       ]
     }
   ]

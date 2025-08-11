@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import slideImage1 from "@/assets/images/slide-image-1.webp";
 import slideImage2 from "@/assets/images/slide-image-2.webp";
 import slideImage3 from "@/assets/images/slide-image-3.webp";
@@ -10,100 +10,152 @@ const images = ref([
     slideImage1, slideImage2, slideImage3, slideImage1, slideImage2, slideImage3, slideImage2
 ]);
 
-// Vị trí ảnh hiện tại
 const currentImageIndex = ref(0);
+const itemWidth = ref(205); // Kích thước ảnh mặc định (desktop)
+const visibleCount = ref(4); // Số ảnh hiển thị mặc định
 
-// Số ảnh hiển thị trong slider
-const visibleImagesCount = images.value.length - 1;
+// Responsive handler
+const updateResponsive = () => {
+    const width = window.innerWidth;
+    if (width < 576) {
+        itemWidth.value = 100;
+        visibleCount.value = 1;
+    } else if (width < 768) {
+        itemWidth.value = 140;
+        visibleCount.value = 2;
+    } else if (width < 992) {
+        itemWidth.value = 180;
+        visibleCount.value = 3;
+    } else {
+        itemWidth.value = 205;
+        visibleCount.value = 4;
+    }
+};
 
-// Hàm để chuyển sang hình ảnh tiếp theo
+onMounted(() => {
+    updateResponsive();
+    window.addEventListener("resize", updateResponsive);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("resize", updateResponsive);
+});
+
+// Tính toán ảnh cuộn tối đa
+const maxScroll = computed(() => images.value.length - visibleCount.value);
+
+// Nút next/prev
 const nextImage = () => {
-    if (currentImageIndex.value < images.value.length - visibleImagesCount) {
+    if (currentImageIndex.value < maxScroll.value) {
         currentImageIndex.value++;
     }
 };
 
-// Hàm để chuyển về hình ảnh trước đó
 const prevImage = () => {
     if (currentImageIndex.value > 0) {
         currentImageIndex.value--;
     }
 };
 
-// Tính toán ẩn hiện nút next và prev
-const isNextDisabled = computed(() => currentImageIndex.value >= images.value.length - visibleImagesCount);
+const isNextDisabled = computed(() => currentImageIndex.value >= maxScroll.value);
 const isPrevDisabled = computed(() => currentImageIndex.value <= 0);
 </script>
 
 <template>
-    <div class="position-relative">
+    <div class="slide-wrapper position-relative">
         <div class="image-slider d-flex align-items-center">
             <div
                 class="image-container d-flex"
-                :style="{ transform: `translateX(-${currentImageIndex * 218}px)` }"
+                :style="{ transform: `translateX(-${currentImageIndex * (itemWidth + 13)}px)` }"
             >
-                <div v-for="(item, index) in images" :key="index" class="image-item">
+                <div
+                    v-for="(item, index) in images"
+                    :key="index"
+                    class="image-item"
+                    :style="{ width: `${itemWidth}px`, height: `${itemWidth * 0.46}px` }"
+                >
                     <img :src="item" alt="Slide Image" />
                 </div>
             </div>
         </div>
-        <div class="btn-slide next" @click="nextImage" v-if="!isNextDisabled">
-            <span class="d-flex align-items-center justify-content-center" v-html="Prev"></span>
-        </div>
-        <div class="btn-slide prev" @click="prevImage" v-if="!isPrevDisabled">
-            <span class="d-flex align-items-center justify-content-center" v-html="Next"></span>
-        </div>
+
+        <!-- Nút prev -->
+        <button class="btn-slide prev" @click="prevImage" :disabled="isPrevDisabled">
+            <span v-html="Prev"></span>
+        </button>
+
+        <!-- Nút next -->
+        <button class="btn-slide next" @click="nextImage" :disabled="isNextDisabled">
+            <span v-html="Next"></span>
+        </button>
     </div>
 </template>
 
 <style lang="scss" scoped>
+.slide-wrapper {
+    width: 100%;
+    //overflow: hidden;
+    position: relative;
+}
+
 .image-slider {
     overflow: hidden;
     width: 100%;
+
     .image-container {
         display: flex;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.4s ease-in-out;
 
         .image-item {
             margin-right: 13px;
+
             img {
-                width: 205px;
-                height: 95px;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
                 border-radius: 10px;
+                display: block;
             }
         }
     }
 }
+
 .btn-slide {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: rgba(192, 232, 252, 0.8);
-    color: white;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.4);
     border: none;
-    cursor: pointer;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
 
     span {
-        width: 10px;
-    }
-
-    &.next {
-        right: -14px;
-    }
-
-    &.prev {
-        left: -14px;
+        width: 16px;
     }
 
     &:hover {
-        background-color: rgba(192, 232, 252, 1);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    &.prev {
+        left: -17px;
+    }
+
+    &.next {
+        right: -18px;
     }
 }
 </style>

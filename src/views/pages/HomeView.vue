@@ -135,15 +135,15 @@ const listSearchTop = ['Vitamin C serum',
 'son dưỡng có màu']
 const banners = [
     {
-        image: "@/assets/images/promotion-banner1.webp",
+        image: imageBanner,
         link: "",
     },
     {
-        image: "@/assets/images/promotion-banner2.webp",
+        image: imageBanner,
         link: "",
     },
     {
-        image: "@/assets/images/promotion-banner3.webp",
+        image: imageBanner,
         link: "",
     },
 ];
@@ -187,7 +187,7 @@ const banners = [
           <button-main />
       </div>
       <AdsBrandSale :banners="banners"/>
-      <ProductTrend />
+<!--      <ProductTrend />-->
   </div>
   <BrandAmbassador />
   <QuickView />

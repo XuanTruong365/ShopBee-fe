@@ -4,6 +4,7 @@ import ButtonMain from "@/components/ButtonMain.vue";
 import ArticleItem from "@/components/blog/ArticleItem.vue";
 import imgBlog from "@/assets/images/img-blog.webp";
 import BreadCrumb from "@/components/BreadCrumb.vue";
+import RegisterFeed from "@/components/mail/RegisterFeed.vue";
 
 const articles1 = [
     {
@@ -48,7 +49,7 @@ const breadcrumbItems = [
 </script>
 
 <template>
-    <div class="blog-container">
+    <div class="blog-container container">
         <div class="blog-content">
             <div class="d-flex align-items-center justify-content-center gap-3 flex-column mt-2">
                 <BreadCrumb :items="breadcrumbItems"/>
@@ -150,6 +151,7 @@ const breadcrumbItems = [
             </div>
         </div>
     </div>
+    <RegisterFeed />
 </template>
 
 <style lang="scss" scoped>
@@ -164,8 +166,6 @@ const breadcrumbItems = [
     .blog-news-container {
       display: flex;
       gap: 20px;
-      padding: 20px;
-      background-color: #f9f9f9;
 
       .news-left {
         flex: 2;

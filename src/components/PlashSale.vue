@@ -6,9 +6,6 @@ import imgProductDemo from "@/assets/images/prd-sale-image.webp";
 import imageAddSale from "@/assets/images/addProductImage.webp"
 import imagePrdBonus from "@/assets/images/bonus-image.webp"
 import {Next, Prev} from "@/assets/icons.js";
-import slideImage1 from "@/assets/images/slide-image-1.webp";
-import slideImage2 from "@/assets/images/slide-image-2.webp";
-import slideImage3 from "@/assets/images/slide-image-3.webp";
 
 const days = ref('00');
 const hours = ref('00');
@@ -31,107 +28,39 @@ const calculateTimeLeft = () => {
     seconds.value = String(secs).padStart(2, '0');
 };
 
-// handle next prevs product
-
+// Dữ liệu mẫu
 const products = ref([
-    {
-        productName: "THE FACE SHOP1",
-        productDescription: "Sữa Rửa Mặt THE FACE SHOP Làm Sáng Da Có Hạt Rice Water Bright Rice Bran Facial Foaming Cleanser 150ml",
-        productImage: imgProductDemo,
-        currentPrice: "265.000đ",
-        oldPrice: "414.000đ",
-        salePercent: 36,
-        stars: 5,
-        totalReviews: 262,
-        totalRemaining: 12,
-        bonusImage: imagePrdBonus,
-        addSaleImage: imageAddSale,
-    },
-    {
-        productName: "Sữa Rửa Mặt LANEIGE2",
-        productDescription: "Sữa Rửa Mặt LANEIGE Fresh Calming Cleanser 150ml",
-        productImage: imgProductDemo,
-        currentPrice: "350.000đ",
-        oldPrice: "480.000đ",
-        salePercent: 27,
-        stars: 4,
-        totalReviews: 150,
-        totalRemaining: 20,
-        bonusImage: imagePrdBonus,
-        addSaleImage: imageAddSale,
-    },
-    {
-        productName: "Sữa Rửa Mặt LANEIGE3",
-        productDescription: "Sữa Rửa Mặt LANEIGE Fresh Calming Cleanser 150ml",
-        productImage: imgProductDemo,
-        currentPrice: "350.000đ",
-        oldPrice: "480.000đ",
-        salePercent: 27,
-        stars: 4,
-        totalReviews: 150,
-        totalRemaining: 20,
-        bonusImage: imagePrdBonus,
-        addSaleImage: imageAddSale,
-    },
-    {
-        productName: "Sữa Rửa Mặt LANEIGE4",
-        productDescription: "Sữa Rửa Mặt LANEIGE Fresh Calming Cleanser 150ml",
-        productImage: imgProductDemo,
-        currentPrice: "350.000đ",
-        oldPrice: "480.000đ",
-        salePercent: 27,
-        stars: 4,
-        totalReviews: 150,
-        totalRemaining: 20,
-        bonusImage: imagePrdBonus,
-        addSaleImage: imageAddSale,
-    },
-    {
-        productName: "Sữa Rửa Mặt LANEIGE5",
-        productDescription: "Sữa Rửa Mặt LANEIGE Fresh Calming Cleanser 150ml",
-        productImage: imgProductDemo,
-        currentPrice: "350.000đ",
-        oldPrice: "480.000đ",
-        salePercent: 27,
-        stars: 4,
-        totalReviews: 150,
-        totalRemaining: 20,
-        bonusImage: imagePrdBonus,
-        addSaleImage: imageAddSale,
-    },
-    {
-        productName: "THE FACE SHOP6",
-        productDescription: "Sữa Rửa Mặt THE FACE SHOP Làm Sáng Da Có Hạt Rice Water Bright Rice Bran Facial Foaming Cleanser 150ml",
-        productImage: imgProductDemo,
-        currentPrice: "265.000đ",
-        oldPrice: "414.000đ",
-        salePercent: 36,
-        stars: 5,
-        totalReviews: 262,
-        totalRemaining: 12,
-        bonusImage: imagePrdBonus,
-        addSaleImage: imageAddSale,
-    },
+    { productName: "THE FACE SHOP1", productImage: imgProductDemo, currentPrice: "265.000đ", oldPrice: "414.000đ", salePercent: 36, stars: 5, totalReviews: 262, totalRemaining: 12, bonusImage: imagePrdBonus, addSaleImage: imageAddSale },
+    { productName: "LANEIGE2", productImage: imgProductDemo, currentPrice: "350.000đ", oldPrice: "480.000đ", salePercent: 27, stars: 4, totalReviews: 150, totalRemaining: 20, bonusImage: imagePrdBonus, addSaleImage: imageAddSale },
+    { productName: "LANEIGE3", productImage: imgProductDemo, currentPrice: "350.000đ", oldPrice: "480.000đ", salePercent: 27, stars: 4, totalReviews: 150, totalRemaining: 20, bonusImage: imagePrdBonus, addSaleImage: imageAddSale },
+    { productName: "LANEIGE4", productImage: imgProductDemo, currentPrice: "350.000đ", oldPrice: "480.000đ", salePercent: 27, stars: 4, totalReviews: 150, totalRemaining: 20, bonusImage: imagePrdBonus, addSaleImage: imageAddSale },
+    { productName: "LANEIGE5", productImage: imgProductDemo, currentPrice: "350.000đ", oldPrice: "480.000đ", salePercent: 27, stars: 4, totalReviews: 150, totalRemaining: 20, bonusImage: imagePrdBonus, addSaleImage: imageAddSale },
+    { productName: "THE FACE SHOP6", productImage: imgProductDemo, currentPrice: "265.000đ", oldPrice: "414.000đ", salePercent: 36, stars: 5, totalReviews: 262, totalRemaining: 12, bonusImage: imagePrdBonus, addSaleImage: imageAddSale },
 ]);
 
-const visibleImagesCount = products.value.length - 1;
-
-// Vị trí ảnh hiện tại
+// Số lượng item hiển thị cùng lúc
+const visibleCount = 5;
 const currentProductIndex = ref(0);
+
+// Cắt mảng để hiển thị
+const visibleProducts = computed(() => {
+    return products.value.slice(currentProductIndex.value, currentProductIndex.value + visibleCount);
+});
+
+// Next & Prev
 const nextProduct = () => {
-    if (currentProductIndex.value < products.value.length - visibleImagesCount) {
+    if (currentProductIndex.value < products.value.length - visibleCount) {
         currentProductIndex.value++;
     }
 };
-
-// Hàm để chuyển về hình ảnh trước đó
 const prevProduct = () => {
     if (currentProductIndex.value > 0) {
         currentProductIndex.value--;
     }
 };
 
-const isNextDisabled = computed(() => currentProductIndex.value >= products.value.length - visibleImagesCount);
+// Disabled nút
+const isNextDisabled = computed(() => currentProductIndex.value >= products.value.length - visibleCount);
 const isPrevDisabled = computed(() => currentProductIndex.value <= 0);
 
 // Hàm cập nhật thời gian mỗi giây
@@ -161,32 +90,23 @@ onUnmounted(() => {
                     <div class="time-view text-uppercase fw-bold"> {{ seconds }} GIÂY</div>
                 </div>
             </div>
-            <div class="btn-view-all bg-white fw-bold">Xem tất cả</div>
+            <a href="/products" class="btn-view-all bg-white fw-bold">Xem tất cả</a>
         </div>
-        <div class="list-product mt-4 position-relative">
+        <div class="list-product position-relative">
             <div class="row flex-nowrap overflow-hidden pt-2">
-                <div class="col-12 col-md-6 col-lg-2 custom-col" v-for="(product, index) in products" :key="index"
-                     :style="{ transform: `translateX(-${currentProductIndex * (100 / visibleImagesCount)}%)` }">
-                    <ProductItem
-                        :productName="product.productName"
-                        :productDescription="product.productDescription"
-                        :productImage="product.productImage"
-                        :currentPrice="product.currentPrice"
-                        :oldPrice="product.oldPrice"
-                        :salePercent="product.salePercent"
-                        :stars="product.stars"
-                        :totalReviews="product.totalReviews"
-                        :totalRemaining="product.totalRemaining"
-                        :bonusImage="product.bonusImage"
-                        :addSaleImage="product.addSaleImage"
-                    />
+                <div class="col-12 col-md-6 col-lg-2 custom-col"
+                     v-for="(product, index) in visibleProducts"
+                     :key="index">
+                    <ProductItem v-bind="product" />
                 </div>
             </div>
+
+            <!-- Nút điều hướng -->
             <div class="btn-slide next" @click="nextProduct" v-if="!isNextDisabled">
-                <span class="d-flex align-items-center justify-content-center" v-html="Prev"></span>
+                <span v-html="Next"></span>
             </div>
             <div class="btn-slide prev" @click="prevProduct" v-if="!isPrevDisabled">
-                <span class="d-flex align-items-center justify-content-center" v-html="Next"></span>
+                <span v-html="Prev"></span>
             </div>
         </div>
     </div>

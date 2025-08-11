@@ -42,7 +42,7 @@ const handleTabChange = (tabIndex) => {
 </script>
 
 <template>
-    <div class="product-trend-container w-100 mt-5 mb-5">
+    <div class="product-trend-container container w-100 mt-5 mb-5">
         <h1 class="heading-trend text-uppercase">Blog làm đẹp</h1>
         <div class="prd-trend-list">
             <div class="mb-5 mt-3 d-flex align-items-center justify-content-center gap-5">

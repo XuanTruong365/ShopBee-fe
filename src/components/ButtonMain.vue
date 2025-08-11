@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex align-items-center justify-content-center mt-5">
-        <div class="btn-see-all text-center">Xem tất cả</div>
+        <a href="/products" class="btn-see-all text-center">Xem tất cả</a>
     </div>
 </template>
 

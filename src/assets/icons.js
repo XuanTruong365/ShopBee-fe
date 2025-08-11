@@ -8,8 +8,8 @@ import More from "./icons/ellipsis-solid.svg?raw"
 import Heart from "./icons/hearts-card.svg?raw"
 import Cart from "./icons/bag-shopping-solid.svg?raw"
 import Down from "./icons/arrow-down.svg?raw"
-import Next from "./icons/angle-left-solid.svg?raw"
-import Prev from "./icons/angle-right-solid.svg?raw"
+import Next from "./icons/angle-right-solid.svg?raw"
+import Prev from "./icons/angle-left-solid.svg?raw"
 import Facebook from "./icons/facebook-brands-solid.svg?raw"
 import Tiktok from "./icons/tiktok-brands-solid.svg?raw"
 import Instagram from "./icons/instagram-brands-solid.svg?raw"
@@ -22,8 +22,9 @@ import TrustPast from "./icons/truck-fast-solid.svg?raw"
 import Return from "./icons/right-left-solid.svg?raw"
 import CheckDone from "./icons/clipboard-check-solid.svg?raw"
 import Coin from "./icons/bitcoin-brands-solid.svg?raw"
+import Search from "./icons/icon-search-line.svg?raw"
 
 export {
     IconGoogle, IconSearch, Bagging, Blog, Home, User, More, Heart, Cart, Down, Prev, Next, Facebook, Tiktok, Instagram,
-    Star, Right, Close, ArrowUp, ArrowDown, TrustPast, Return, CheckDone, Coin
+    Star, Right, Close, ArrowUp, ArrowDown, TrustPast, Return, CheckDone, Coin, Search
 }

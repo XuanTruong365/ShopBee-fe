@@ -1,3 +1,4 @@
+```unknown
 # Logs
 logs
 *.log
@@ -7,24 +8,42 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-.DS_Store
-dist
-dist-ssr
-coverage
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build output directories
+dist/
+dist-ssr/
+coverage/
 *.local
 
+# Cypress output
 /cypress/videos/
 /cypress/screenshots/
+/cypress/downloads/
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
+# TypeScript build info
 *.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+```

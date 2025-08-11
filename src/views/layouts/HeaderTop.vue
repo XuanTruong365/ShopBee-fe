@@ -128,7 +128,7 @@ const menuItems = [
                             </router-link>
                             <span class="icon-header ms-4" v-html="More"></span>
                             <div class="block-border ms-4"></div>
-                            <router-link :to="{name: 'auth.login'}" class="header-main-item d-flex align-items-center justify-content-center ms-4">
+                            <router-link :to="{name: 'auth.login'}" class="header-main-item text-decoration-none d-flex align-items-center justify-content-center ms-4">
                                 <span class="icon-header" v-html="User"></span>
                                 <span class="ms-2 header-text">Đăng nhập</span>
                             </router-link>

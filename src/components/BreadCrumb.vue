@@ -1,5 +1,5 @@
 <template>
-    <ul class="breadcrumb list-unstyled d-flex align-items-center justify-content-center p-0 m-0">
+    <ul class="breadcrumb list-unstyled d-flex align-items-center p-0 m-0">
         <li v-for="(item, index) in items" :key="index">
             <a
                 :href="item.link || '#'"
