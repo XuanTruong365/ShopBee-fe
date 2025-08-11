@@ -16,6 +16,7 @@ import {ref} from "vue";
 import BlogSpa from "@/components/blog/BlogSpa.vue";
 import QuickView from "@/views/modal/QuickView.vue";
 import AdsBrandSale from "@/components/sale/AdsBrandSale.vue";
+import imageBanner from "@/assets/images/promotion-banner.webp";
 
 const listImageVoucher = [imageVoucher,imageVoucher,imageVoucher]
 const listProducts = [
